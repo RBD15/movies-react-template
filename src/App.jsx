@@ -1,10 +1,18 @@
 import './App.css';
+import Main from './pages/Main';
+import SingleMovie from './pages/SingleMovie';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Fragment } from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <h4>Starting</h4>
-    </div>
+    <Fragment className="App">
+      <Header></Header>
+      {/* <Main></Main> */}
+      <SingleMovie></SingleMovie>
+      <Footer></Footer>
+    </Fragment>
   );
 }
 

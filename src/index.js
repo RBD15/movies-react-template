@@ -1,13 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './css/plugins.css';
+import './css/style.css';
+import Main from './pages/Main';
+import SingleMovie from './pages/SingleMovie';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+        <Header></Header>
+      <Routes>
+        <Route path='/' element={<Main/>}> 
+        </Route>
+        <Route path='/movie/:imdbId' element={<SingleMovie/>}>
+        </Route>
+        {/* <Route exact path='/login' element={<Login/>}>
+        </Route>
+        <Route exact path='/register' element={<Register/>}>
+        </Route> */}
+      </Routes>
+        <Footer></Footer>
+    </Router>
   </React.StrictMode>
 );
 
