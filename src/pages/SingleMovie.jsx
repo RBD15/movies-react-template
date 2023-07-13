@@ -2,15 +2,36 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getMovie } from '../hooks/useMovies'
 import Preloader from '../components/Preloader'
+import { useDispatch, useSelector } from 'react-redux'
 
 const SingleMovie = () => {
   const {imdbId} = useParams()
 
   const [movieInfo,setMovieInfo] = useState({})
+  const store = useSelector((store) => store)
+  const dispatch = useDispatch()
 
   const getMovieInfo = async () => {
     const result = await getMovie(imdbId);
     setMovieInfo(result.data);
+  }
+  
+  const isFavorite = () => {
+    const result = store.favorite.movies.filter((movieFavorite) => {
+    if(movieFavorite.imdbID === movieInfo.imdbID)
+      return movieFavorite
+    })
+    return result.length !== 0
+  }
+
+  const addFavorite = (e) => {
+    e.preventDefault()
+    console.log('Movie',movieInfo)
+    if (!isFavorite())
+      dispatch({
+        type: 'addFavorite',
+        payload: movieInfo
+      })
   }
 
   useEffect(() => {
@@ -58,7 +79,7 @@ const SingleMovie = () => {
                     <div className="movie-single-ct main-content">
                       <h1 className="bd-hd">{movieInfo.Title}<span>{movieInfo.Year}</span></h1>
                       <div className="social-btn">
-                        <a href="www.google.com" className="parent-btn"><i className="ion-heart"></i> Add to Favorite</a>
+                        <a href="#" className="parent-btn"  ><i className="ion-heart" onClick={addFavorite}></i> Add to Favorite</a>
                         <div className="hover-bnt">
                           <a href="www.google.com" className="parent-btn"><i className="ion-android-share-alt"></i>share</a>
                           <div className="hvr-item">

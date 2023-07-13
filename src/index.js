@@ -8,25 +8,31 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import reducers from './reducers';
+import { Provider } from 'react-redux';
 
+const store = createStore(reducers);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-        <Header></Header>
-      <Routes>
-        <Route path='/' element={<Main/>}> 
-        </Route>
-        <Route path='/movie/:imdbId' element={<SingleMovie/>}>
-        </Route>
-        {/* <Route exact path='/login' element={<Login/>}>
-        </Route>
-        <Route exact path='/register' element={<Register/>}>
-        </Route> */}
-      </Routes>
-        <Footer></Footer>
-    </Router>
+    <Provider store={store}>
+      <Router>
+          <Header></Header>
+        <Routes>
+          <Route path='/' element={<Main/>}> 
+          </Route>
+          <Route path='/movie/:imdbId' element={<SingleMovie/>}>
+          </Route>
+          {/* <Route exact path='/login' element={<Login/>}>
+          </Route>
+          <Route exact path='/register' element={<Register/>}>
+          </Route> */}
+        </Routes>
+          <Footer></Footer>
+      </Router>
+    </Provider>
   </React.StrictMode>
 );
 
