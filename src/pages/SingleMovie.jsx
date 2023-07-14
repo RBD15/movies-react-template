@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getMovie } from '../hooks/useMovies'
 import Preloader from '../components/Preloader'
 import { useDispatch, useSelector } from 'react-redux'
+import MovieRaiting from '../components/MovieRaiting'
 
 const SingleMovie = () => {
   const {imdbId} = useParams()
@@ -98,10 +99,11 @@ const SingleMovie = () => {
                           </div>
                         </div>		
                       </div>
-                      <div className="movie-rate">
+                      <MovieRaiting rating={movieInfo.imdbRating}></MovieRaiting>
+                      {/* <div className="movie-rate">
                         <div className="rate">
                           <i className="ion-android-star"></i>
-                          <p><span>{movieInfo.Ratings[0].value}</span><br/>
+                          <p><span>{movieInfo.imdbRating}</span><br/>
                             <span className="rv">56 Reviews</span>
                           </p>
                         </div>
@@ -117,7 +119,7 @@ const SingleMovie = () => {
                           <i className="ion-ios-star"></i>
                           <i className="ion-ios-star-outline"></i>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="movie-tabs">
                         <div className="tabs">
                           <ul className="tab-links tabs-mv">
