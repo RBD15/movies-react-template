@@ -15,7 +15,7 @@ const Trailers = () => {
                 <div>
                   <iframe className="item-video" src="https://www.youtube.com/embed/1Q8fG0TtVAY" data-src="https://www.youtube.com/embed/1Q8fG0TtVAY"></iframe>
                 </div>
-                <div>
+                {/* <div>
                   <iframe className="item-video" src="https://www.youtube.com/embed/1Q8fG0TtVAY" data-src="https://www.youtube.com/embed/w0qQkSuWOS8"></iframe>
                 </div>
                 <div>
@@ -29,7 +29,7 @@ const Trailers = () => {
                 </div>
                 <div>
                   <iframe className="item-video" src="https://www.youtube.com/embed/1Q8fG0TtVAY" data-src="https://www.youtube.com/embed/NxhEZG0k9_w"></iframe>
-                </div>
+                </div> */}
               </div>
               <div className="slider-nav-2 thumb-ft">
                 <div className="item">

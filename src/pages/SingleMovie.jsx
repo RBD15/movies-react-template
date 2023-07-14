@@ -24,19 +24,27 @@ const SingleMovie = () => {
     return result.length !== 0
   }
 
-  const addFavorite = (e) => {
+  const toggleFavorite = (e) => {
     e.preventDefault()
-    console.log('Movie',movieInfo)
-    if (!isFavorite())
+
+    if (!isFavorite()){
+      console.log('Add')
       dispatch({
         type: 'addFavorite',
         payload: movieInfo
       })
+    }else{
+      console.log('Remove')
+      dispatch({
+        type: 'removeFavorite',
+        payload: movieInfo.imdbID
+      })
+    }
   }
 
   useEffect(() => {
     getMovieInfo()
-  }, [])
+  }, [movieInfo])
 
   return (
       ( () => {
@@ -79,7 +87,7 @@ const SingleMovie = () => {
                     <div className="movie-single-ct main-content">
                       <h1 className="bd-hd">{movieInfo.Title}<span>{movieInfo.Year}</span></h1>
                       <div className="social-btn">
-                        <a href="#" className="parent-btn"  ><i className="ion-heart" onClick={addFavorite}></i> Add to Favorite</a>
+                        <a href="#" className="parent-btn"  ><i className="ion-heart" onClick={toggleFavorite}></i> Add to Favorite</a>
                         <div className="hover-bnt">
                           <a href="www.google.com" className="parent-btn"><i className="ion-android-share-alt"></i>share</a>
                           <div className="hvr-item">
@@ -93,7 +101,7 @@ const SingleMovie = () => {
                       <div className="movie-rate">
                         <div className="rate">
                           <i className="ion-android-star"></i>
-                          <p><span>{movieInfo.Ratings[0].value}</span> /10<br/>
+                          <p><span>{movieInfo.Ratings[0].value}</span><br/>
                             <span className="rv">56 Reviews</span>
                           </p>
                         </div>

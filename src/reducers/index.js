@@ -54,8 +54,22 @@ export default (state = initialState, { type, payload }) => {
   switch (type) {
 
   case 'addFavorite':
+    console.log('Add',payload)
     return { ...state,favorite:{...state.favorite, movies:[...state.favorite.movies,payload]}}
 
+  case 'removeFavorite':
+    console.log('Remove',payload)
+    return { ...state,favorite:
+      {
+        ...state.favorite,
+        movies:
+          state.favorite.movies.filter((movie)=>{
+            if(movie.imdbID !== payload)
+              return movie 
+          })
+      }
+    }
+  
   default:
     return state
   }
