@@ -16,7 +16,7 @@ const MovieRaiting = ({rating}) => {
       {(()=>{
           let stars;
           for (let i = 0; i < 10; i++) {
-            if(parseInt(rating)>=i){
+            if(parseInt(rating)>i){
               stars+=`<i className="ion-ios-star"></i>`;
             }else{
               stars+=`<i className="ion-ios-star-outline"></i>`;

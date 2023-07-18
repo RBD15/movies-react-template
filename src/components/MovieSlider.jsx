@@ -25,7 +25,7 @@ const MovieSlider = ({movies}) => {
                         <div className="cate">
                           <span className="blue"><a href="#">{movie.Type}</a></span>
                         </div>
-                        <h6><a href="#">{movie.Title}</a></h6>
+                        <h6><a href="#" className='moveTitleLink'>{movie.Title}</a></h6>
                         <p><i className="ion-android-star"></i><span>{movie.Year}</span></p>
                       </div>
                     </div>

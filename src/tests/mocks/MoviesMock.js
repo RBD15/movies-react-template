@@ -1,11 +1,5 @@
-const initialState = {
-  name: 'Prueba',
-  phone: '123456789',
-  address: 'Something Place',
-  email: 'prueba@correo.com',
-  favorite: {
-    movies: [
-      {
+export default  [
+    {
         Title:"Batman Begins",
         Year:"2005",Rated:"PG-13",
         Released:"15 Jun 2005",
@@ -42,33 +36,5 @@ const initialState = {
       Production:"N/A",
       Website:"N/A",
       Response:"True"
-    }
-    ],
-    series: [
-
-    ]
-  }
-}
-
-export default (state = initialState, { type, payload }) => {
-  switch (type) {
-
-  case 'addFavorite':
-    return { ...state,favorite:{...state.favorite, movies:[...state.favorite.movies,payload]}}
-
-  case 'removeFavorite':
-    return { ...state,favorite:
-      {
-        ...state.favorite,
-        movies:
-          state.favorite.movies.filter((movie)=>{
-            if(movie.imdbID !== payload)
-              return movie 
-          })
-      }
-    }
-  
-  default:
-    return state
-  }
-}
+    },
+  ]
