@@ -9,7 +9,7 @@ const SingleMovie = () => {
   const {imdbId} = useParams()
 
   const [movieInfo,setMovieInfo] = useState({})
-  const store = useSelector((store) => store)
+  const movies = useSelector((store) => store.favorite.movies)
   const dispatch = useDispatch()
 
   const getMovieInfo = async () => {
@@ -18,7 +18,7 @@ const SingleMovie = () => {
   }
   
   const isFavorite = () => {
-    const result = store.favorite.movies.filter((movieFavorite) => {
+    const result = movies.filter((movieFavorite) => {
     if(movieFavorite.imdbID === movieInfo.imdbID)
       return movieFavorite
     })
@@ -52,7 +52,7 @@ const SingleMovie = () => {
         if(movieInfo.Title === undefined){
           return (<Preloader></Preloader>)
         }else{
-          return (<Fragment>
+          return (<div>
             <div className="hero mv-single-hero">
               <div className="container">
                 <div className="row">
@@ -859,7 +859,7 @@ const SingleMovie = () => {
                 </div>
               </div>
             </div>
-          </Fragment>)
+          </div>)
         }
 
       })()

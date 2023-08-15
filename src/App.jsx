@@ -1,18 +1,33 @@
 import './App.css';
+import Login from './pages/Login';
 import Main from './pages/Main';
+import Register from './pages/Register';
 import SingleMovie from './pages/SingleMovie';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import { Fragment } from 'react';
-
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 function App() {
   return (
-    <Fragment className="App">
-      <Header></Header>
-      {/* <Main></Main> */}
-      <SingleMovie></SingleMovie>
-      <Footer></Footer>
-    </Fragment>
+    <div>
+        {/* <Header></Header>
+        <Main></Main>
+        <SingleMovie></SingleMovie>
+        <Footer></Footer> */}
+      {/* <Provider store={store}> */}
+        {/* <Router> */}
+          {/* <Header></Header> */}
+          <Routes>
+            <Route path='/' element={<Main/>}> 
+            </Route>
+            <Route path='/movie/:imdbId' element={<SingleMovie/>}>
+            </Route>
+            <Route  path='/login' element={<Login/>}>
+            </Route>
+            <Route exact path='/register' element={<Register/>}>
+            </Route>
+          </Routes>
+          {/* <Footer></Footer> */}
+        {/* </Router> */}
+      {/* </Provider> */}
+    </div>
   );
 }
 

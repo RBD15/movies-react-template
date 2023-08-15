@@ -94,8 +94,8 @@ const Header = () => {
                   </ul>
                 </li>                
                 <li><a href="#">Help</a></li>
-                <li className="loginLink"><a href="#">LOG In</a></li>
-                <li className="btn signupLink"><a href="#">sign up</a></li>
+                <li className="loginLink"><Link href="#" to={'/login'}>LOG In</Link></li>
+                <li className="btn signupLink"><Link href="#" to={'/register'}>sign up</Link></li>
               </ul>
             </div>
           </nav>
