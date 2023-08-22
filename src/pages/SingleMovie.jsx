@@ -9,7 +9,7 @@ const SingleMovie = () => {
   const {imdbId} = useParams()
 
   const [movieInfo,setMovieInfo] = useState({})
-  const movies = useSelector((store) => store.favorite.movies)
+  const movies = useSelector((store) => store.selectGlobalState.client.store.favorite.movies)
   const dispatch = useDispatch()
 
   const getMovieInfo = async () => {
