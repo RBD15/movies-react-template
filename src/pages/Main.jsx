@@ -15,7 +15,6 @@ const Main = () => {
     const moviesFounded = await getMovies();
     setMovie(moviesFounded.data.Search);
   }
-  console.log(store)
 
   useEffect(()=> {
     getAllMovies()

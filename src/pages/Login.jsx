@@ -7,18 +7,15 @@ const Login = () => {
 
   const email = useRef()
   const password = useRef()
-
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const submit = async(e) => {
     e.preventDefault()
-    console.log('Email', email.current.value)
-    console.log('Password', password.current.value)
+
     Logup(email.current.value,password.current.value).then((result)=>{
-      console.log('Data',result.data.users[1])
       dispatch({
         type: 'initUserData',
-        payload: result.data.users[1]
+        payload: result.data
       })
     }).catch((err)=> {
       console.log(err)

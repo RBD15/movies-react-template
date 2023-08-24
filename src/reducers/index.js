@@ -12,7 +12,8 @@ const initialState = {
       }
     }
   },
-  lastDate: ''
+  lastDate: '',
+  token: ''
 }
 
 export const selectGlobalState = (state) => state
@@ -21,26 +22,40 @@ export const reducer = (state =initialState, { type, payload }) => {
   const maxDuration = 36000;
   const currentTime = Date.now()
   console.log('Payload',payload)
-  console.log('State',state)
   switch (type) {
     case 'initUserData':
-      console.log('GlobalState',payload);
       const newState = {
-        name: payload.name,
+        name: payload.users[1].name,
         phone: '',
-        address: payload.address,
-        email: payload.email,
+        address: payload.users[1].address,
+        email: payload.users[1].email,
         client: {
           store: {
-            favorite: payload.client.store.favorite            
+            favorite: payload.users[1].client.store.favorite            
           }
         },
+        token: payload.newToken,
         lastDate: currentTime
       }
-      console.log('data',newState) 
-
       return {...newState}
-
+    case 'logout':
+      const emptyState = {
+        name: '',
+        phone: '',
+        address: '',
+        email: '',
+        client: {
+          store: {
+            favorite: {
+              movies:[],
+              series:[]
+            }            
+          }
+        },
+        token: '',
+        lastDate: ''
+      }
+      return {...emptyState}
     case 'addFavorite':
       return { ...state,client: { store: { favorite:{...state.client.store.favorite, movies:[...state.client.store.favorite.movies,payload]} } }}
 
