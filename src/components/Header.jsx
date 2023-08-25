@@ -60,39 +60,8 @@ const Header = () => {
                     <li className="it-last"><a href="celebritysingle.html">celebrity single</a></li>
                   </ul>
                 </li>
-                <li className="dropdown first">
-                  <a className="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                  news <i className="fa fa-angle-down" aria-hidden="true"></i>
-                  </a>
-                  <ul className="dropdown-menu level1">
-                    <li><a href="bloglist.html">blog List</a></li>
-                    <li><a href="bloggrid.html">blog Grid</a></li>
-                    <li className="it-last"><a href="blogdetail.html">blog Detail</a></li>
-                  </ul>
-                </li>
-                <li className="dropdown first">
-                  <a className="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                  community <i className="fa fa-angle-down" aria-hidden="true"></i>
-                  </a>
-                  <ul className="dropdown-menu level1">
-                    <li><a href="userfavoritegrid.html">user favorite grid</a></li>
-                    <li><a href="userfavoritelist.html">user favorite list</a></li>
-                    <li><a href="userprofile.html">user profile</a></li>
-                    <li className="it-last"><a href="userrate.html">user rate</a></li>
-                  </ul>
-                </li>
               </ul>
-              <ul className="nav navbar-nav flex-child-menu menu-right">
-                <li className="dropdown first">
-                  <a className="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                  pages <i className="fa fa-angle-down" aria-hidden="true"></i>
-                  </a>
-                  <ul className="dropdown-menu level1">
-                    <li><a href="landing.html">Landing</a></li>
-                    <li><a href="404.html">404 Page</a></li>
-                    <li className="it-last"><a href="comingsoon.html">Coming soon</a></li>
-                  </ul>
-                </li>                
+              <ul className="nav navbar-nav flex-child-menu menu-right">          
                 <li><a href="#">Help</a></li>
                 <li className="loginLink"><Link href="#" to={'/login'}>LOG In</Link></li>
                 <li className="btn signupLink"><Link href="#" to={'/register'}>sign up</Link></li>
