@@ -20,12 +20,11 @@ export const selectGlobalState = (state) => state
 
 export const reducer = (state =initialState, { type, payload }) => {
   const currentTime = Date.now()
-  console.log('Payload',payload)
+  // console.log('Payload',payload)
   switch (type) {
     case 'restartState':
       const firstState = initialState
       firstState.lastDate = currentTime
-      console.log('InitState',firstState)  
       return {...firstState}
     case 'initUserData':
       const newState = {
@@ -38,7 +37,6 @@ export const reducer = (state =initialState, { type, payload }) => {
             favorite: payload.users[1].client.store.favorite            
           }
         },
-        // token: payload.newToken,
         lastDate: currentTime
       }
       return {...newState}

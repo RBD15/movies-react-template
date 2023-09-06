@@ -1,7 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+  const state = useSelector((state)=>state.selectGlobalState)
   return (
     <header className="ht-header">
       <div className="container">
@@ -62,9 +64,8 @@ const Header = () => {
                 </li>
               </ul>
               <ul className="nav navbar-nav flex-child-menu menu-right">          
-                <li><a href="#">Help</a></li>
-                <li className="loginLink"><Link href="#" to={'/login'}>LOG In</Link></li>
-                <li className="btn signupLink"><Link href="#" to={'/register'}>sign up</Link></li>
+                <li className="loginLink" style={{display:(state.email)? 'none':''}} ><Link href="#" to={'/login'}>LOG In</Link></li>
+                <li className="btn signupLink" style={{display:(state.email)? 'none':''}}><Link href="#" to={'/register'}>sign up</Link></li>
               </ul>
             </div>
           </nav>

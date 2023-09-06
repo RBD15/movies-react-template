@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux'
 
 const Main = () => {
 
-  const store = useSelector(store=>store)
   const [movies,setMovie] = useState([])
   const getAllMovies = async () => {
     const moviesFounded = await getMovies();
