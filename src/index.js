@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './css/plugins.css';
-import './css/style.css';
+
+
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -11,7 +11,11 @@ import storage from 'redux-persist/es/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
+import './css/plugins.css';
+import './css/style.css';
 
 import { PersistGate } from 'redux-persist/integration/react';
 

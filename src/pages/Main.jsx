@@ -27,8 +27,8 @@ const Main = () => {
           return (<div>
             <MovieSlider movies={movies}></MovieSlider>
             <Movies></Movies>
-            <LatestNew></LatestNew>
-            <Trailers></Trailers>
+            {/*<LatestNew></LatestNew>
+            <Trailers></Trailers> */}
           </div>)
         }
       })()

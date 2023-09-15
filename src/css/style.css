@@ -3186,7 +3186,7 @@ button.close {
 .navbar-header,
 .navbar-collapse,
 .modal-footer {
-  *zoom: 1;
+  zoom: 1;
 }
 .clearfix:before,
 .clearfix:after,
@@ -3938,7 +3938,7 @@ textarea {
 /* III. COMPONENT
 ***********************/
 .row {
-  *zoom: 1;
+  zoom: 1;
 }
 .row:before,
 .row:after {
