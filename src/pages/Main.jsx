@@ -25,10 +25,10 @@ const Main = () => {
           return (<Preloader></Preloader>)
         }else{
           return (<div>
-            <MovieSlider movies={movies}></MovieSlider>
+             <MovieSlider movies={movies}></MovieSlider>
             <Movies></Movies>
-            {/*<LatestNew></LatestNew>
-            <Trailers></Trailers> */}
+             <LatestNew></LatestNew>
+            <Trailers></Trailers> 
           </div>)
         }
       })()
