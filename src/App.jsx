@@ -28,7 +28,7 @@ function App() {
   stateChecker(state)
 
   return (
-    <div>
+    <>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Main/>}> 
@@ -43,7 +43,7 @@ function App() {
         </Route>
       </Routes>
       <Footer></Footer>
-    </div>
+    </>
   );
 }
 
