@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
+
 import App from './App';
 import {reducer, selectGlobalState} from './reducers/';
 import storage from 'redux-persist/es/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 

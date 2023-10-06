@@ -6902,7 +6902,8 @@ p.ceb-single {
   padding: 50px;
   border: 1px solid #e1e1e1;
   height: auto;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-image: url(http://localhost:3000/static/media/slider-bg.6b529071c417ed7d7cc7.jpg) no-repeat;
 }
 @media (max-width: 767px) {
   .overlay .login-content {
@@ -7787,7 +7788,7 @@ p.ceb-single {
   border-color: #d0dae4;
 }
 header {
-  position: absolute;
+  /* position: absolute; */
   z-index: 100;
   width: 100%;
   background-color: transparent;

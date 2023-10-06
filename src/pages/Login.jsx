@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import Logup from '../hooks/useAuth'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import '../css/login.css'
+import OwnBackendLogin from '../utils/Auth/OwnBackendLogin'
 
 const Login = () => {
 
@@ -9,63 +11,55 @@ const Login = () => {
   const password = useRef()
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const loginAdapter = new OwnBackendLogin('http://localhost:3001/')
   const submit = async(e) => {
     e.preventDefault()
 
-    Logup(email.current.value,password.current.value).then((result)=>{
+    // Logup(email.current.value,password.current.value).then((result)=>{
+    //   dispatch({
+    //     type: 'initUserData',
+    //     payload: result.data
+    //   })
+    // }).catch((err)=> {
+    //   console.log(err)
+    //   alert(err)
+    // })
+
+    loginAdapter.logging(email.current.value,password.current.value).then((result)=>{
       dispatch({
         type: 'initUserData',
         payload: result.data
       })
     }).catch((err)=> {
       console.log(err)
+      alert(err)
     })
     navigate("/", { relative: "path" })
 
   }
 
   return (
-    <div className="login-wrapper" id="login-content">
-      <div className="login-content">
-          <a href="#" className="close">x</a>
-          <h3>Login</h3>
-          <form>
-            <div className="row">
-              <label for="username">
-                      Username:
-                      <input type="text" name="username" id="username" placeholder="Hugh Jackman" pattern="" ref={email} required="required" />
-                  </label>
-            </div>
+    
+      <div className='row login-section'>
+        <div className="col-8 mx-auto">
+          <div className="login-form">
+          <form onSubmit={submit}>
+            <h1>Iniciar Sesión</h1>
+            <input type="text" placeholder="Correo" ref={email} required="required"/>
+            <input type="password" placeholder="Contraseña" ref={password} required="required"/>
+            <button className='btn signupLink' type="submit">Iniciar Sesión</button>
             
-              <div className="row">
-                <label for="password">
-                      Password:
-                      <input type="password" name="password" id="password" placeholder="******" pattern=""  ref={password} required="required" />
-                  </label>
-              </div>
-              <div className="row">
-                <div className="remember">
-            <div>
-              <input type="checkbox" name="remember" value="Remember me" /><span>Remember me</span>
+            {/* <div className="social-login">
+              <button >Login con Facebook</button>
             </div>
-                  <a href="#">Forget password ?</a>
-                </div>
-              </div>
-            <div className="row"> 
-              <button type="submit" onClick={submit} >Login</button>
-              <Link to={'/'}>Main</Link>
-
+            */}
+            <div className="signup-link">
+                ¿No tienes una cuenta? <button className='btn'><a href="#">Regístrate aquí</a></button>
             </div>
-          </form>
-          <div className="row">
-            <p>Or via social</p>
-              <div className="social-btn-2">
-                <a className="fb" href="#"><i className="ion-social-facebook"></i>Facebook</a>
-                <a className="tw" href="#"><i className="ion-social-twitter"></i>twitter</a>
-              </div>
+            </form>
           </div>
+        </div>
       </div>
-    </div>
   )
 }
 
