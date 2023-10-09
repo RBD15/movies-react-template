@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import '../css/login.css'
 import OwnBackendLogin from '../utils/Auth/OwnBackendLogin'
+import FirebaseLogin from '../utils/Auth/FirebaseLogin'
 
 const Login = () => {
 
@@ -11,30 +12,22 @@ const Login = () => {
   const password = useRef()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const loginAdapter = new OwnBackendLogin('http://localhost:3001/')
+  // const loginAdapter = new OwnBackendLogin('http://localhost:3001/')
+  const loginAdapter = new FirebaseLogin('')
+
   const submit = async(e) => {
     e.preventDefault()
-
-    // Logup(email.current.value,password.current.value).then((result)=>{
-    //   dispatch({
-    //     type: 'initUserData',
-    //     payload: result.data
-    //   })
-    // }).catch((err)=> {
-    //   console.log(err)
-    //   alert(err)
-    // })
 
     loginAdapter.logging(email.current.value,password.current.value).then((result)=>{
       dispatch({
         type: 'initUserData',
-        payload: result.data
+        payload: result
       })
+      navigate("/", { relative: "path" })
     }).catch((err)=> {
       console.log(err)
       alert(err)
     })
-    navigate("/", { relative: "path" })
 
   }
 

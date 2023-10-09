@@ -28,17 +28,18 @@ export const reducer = (state =initialState, { type, payload }) => {
       return {...firstState}
     case 'initUserData':
       const newState = {
-        name: payload.users[1].name,
+        name: payload.name,
         phone: '',
-        address: payload.users[1].address,
-        email: payload.users[1].email,
+        address: payload.address,
+        email: payload.email,
         client: {
           store: {
-            favorite: payload.users[1].client.store.favorite            
+            favorite: payload.client.store.favorite            
           }
         },
         lastDate: currentTime
       }
+
       return {...newState}
     case 'logout':
       const emptyState = {

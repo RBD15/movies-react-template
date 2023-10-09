@@ -1,5 +1,6 @@
 import LoginAdapter from "../LoginAdapter";
 import axios from "axios"
+import { LoginResponseVO } from "./LoginResponseVO";
 
 class OwnBackendLogin extends LoginAdapter{
 
@@ -15,13 +16,16 @@ class OwnBackendLogin extends LoginAdapter{
 
   }
 
-  async logging(email, password) {
+  async logging(emailSubmited, password) {
     const data = {
-      email,
+      email:emailSubmited,
       password
     }
     this.#result = await axios.post(this.#url,{...data})
-    return this.#result
+    console.log(this.#result.data)
+    const {name, email, phone, store, address, client} = this.#result.data.users[1]
+    const logingResponse = new LoginResponseVO(name,'',address,email,client)
+    return logingResponse.getResponse()
   }
 
 }

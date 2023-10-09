@@ -21,6 +21,7 @@ function App() {
     const currestTimeStampDate = Date.now();
     const difference = currestTimeStampDate - state.lastDate
 
+    console.log('State name',state)
     if(state.name === ''){
       console.log('Emptystate')
       if(location.pathname !== '/login'){
